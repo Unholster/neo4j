@@ -143,6 +143,38 @@
         </property>
       </activation>
     </profile>
+    <profile>
+      <id>neo-docs-only-build</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>docsOnly</name>
+        </property>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <configuration>
+                <excludes combine.self="override">
+                  <!-- Want to get rid of parent excludes here -->
+                </excludes>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-failsafe-plugin</artifactId>
+              <configuration>
+                <excludes combine.self="override">
+                  <!-- Want to get rid of parent excludes here -->
+                </excludes>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
   </profiles>
 
 </project>

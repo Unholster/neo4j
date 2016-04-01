@@ -190,6 +190,49 @@
         </pluginManagement>
       </build>
     </profile>
+    <profile>
+      <id>neo-docs-only-build</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>docsOnly</name>
+        </property>
+      </activation>
+      <properties>
+        <attach-java-sources-phase>none</attach-java-sources-phase>
+        <attach-java-test-sources-phase>none</attach-java-test-sources-phase>
+        <integration-test-phase>none</integration-test-phase>
+      </properties>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <configuration>
+                <includes>
+                  <include>**/Test*.java</include>
+                  <include>**/*Test.java</include>
+                  <include>**/*Tests.java</include>
+                  <include>**/*TestCase.java</include>
+                </includes>
+                <excludes combine.self="override">
+                  <!-- Want to get rid of parent excludes here -->
+                </excludes>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-failsafe-plugin</artifactId>
+              <configuration>
+                <excludes combine.self="override">
+                  <!-- Want to get rid of parent excludes here -->
+                </excludes>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
      <profile>
       <id>neo-full-build-with-javadoc</id>
       <activation>

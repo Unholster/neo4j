@@ -401,6 +401,60 @@ public class ComponentVersion extends Version
       </build>
     </profile>
     <profile>
+      <id>neo-docs-only-build</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>docsOnly</name>
+        </property>
+      </activation>
+      <modules>
+        <module>manual</module>
+      </modules>
+      <properties>
+        <attach-java-sources-phase>package</attach-java-sources-phase>
+        <attach-java-test-sources-phase>package</attach-java-test-sources-phase>
+        <attach-test-jar-phase>package</attach-test-jar-phase>
+        <attach-docs-phase>verify</attach-docs-phase>
+        <integration-test-phase>integration-test</integration-test-phase>
+      </properties>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <configuration>
+                <includes>
+                  <include>**/DocTest*.java</include>
+                  <include>**/*DocTest.java</include>
+                  <include>**/*DocTests.java</include>
+                  <include>**/*DocTestCase.java</include>
+                </includes>
+                <excludes>
+                  <exclude>%regex[^((?!Doc).)*$]</exclude>
+                </excludes>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-failsafe-plugin</artifactId>
+              <configuration>
+                <includes>
+                  <include>**/DocIT*.java</include>
+                  <include>**/*DocIT.java</include>
+                  <include>**/*DocITCase.java</include>
+                </includes>
+                <excludes>
+                  <exclude>%regex[^((?!Doc).)*$]</exclude>
+                </excludes>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+    <profile>
       <id>neo-minimal-build</id>
       <activation>
         <activeByDefault>false</activeByDefault>
