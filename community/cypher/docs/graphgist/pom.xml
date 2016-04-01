@@ -159,6 +159,7 @@
               <configuration>
                 <excludes combine.self="override">
                   <!-- Want to get rid of parent excludes here -->
+                  <exclude>none</exclude>
                 </excludes>
               </configuration>
             </plugin>
@@ -168,6 +169,7 @@
               <configuration>
                 <excludes combine.self="override">
                   <!-- Want to get rid of parent excludes here -->
+                  <exclude>none</exclude>
                 </excludes>
               </configuration>
             </plugin>

@@ -265,6 +265,7 @@
                 </includes>
                 <excludes combine.self="override">
                   <!-- Want to get rid of parent excludes here -->
+                  <exclude>none</exclude>
                 </excludes>
                 <systemPropertyVariables>
                   <dbms.pagecache.memory.default.override>8m</dbms.pagecache.memory.default.override>
@@ -277,6 +278,7 @@
               <configuration>
                 <excludes combine.self="override">
                   <!-- Want to get rid of parent excludes here -->
+                  <exclude>none</exclude>
                 </excludes>
               </configuration>
             </plugin>
