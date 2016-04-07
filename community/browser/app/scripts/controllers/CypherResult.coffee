@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 angular.module('neo4jApp.controllers')
   .controller 'CypherResultCtrl', ['$rootScope', '$scope', ($rootScope, $scope) ->
 
-    $scope.displayInternalRelationships = $rootScope.stickyDisplayInternalRelationships ? true
+    $scope.displayInternalRelationships = $rootScope.stickyDisplayInternalRelationships ? false
     $scope.availableModes = []
     $scope.$watch 'frame.response', (resp) ->
       return unless resp
