@@ -43,9 +43,8 @@ angular.module('neo4jApp.directives')
     ]
     link: (scope, element, attrs) ->
       parent = element.parent()
-      scope.fullscreen = no
+      scope.fullscreen = true
       scope.$watch 'fullscreen', (val, oldVal) ->
-        return if val is oldVal
         if val
           fullscreenService.display(element)
         else

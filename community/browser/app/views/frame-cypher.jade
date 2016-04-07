@@ -1,38 +1,4 @@
 div(ng-controller="CypherResultCtrl", fullscreen)
-  .outer
-    include partials/frame-common-actions
-    .left-frame-toggle
-      .left-toggle-menu.toggle(ng-if='frame.type == "cypher" && availableModes.length > 0')
-        .btn-group.toggle-buttons
-          .button-holder(ng-show="isAvailable('graph')")
-            button.btn(ng-class='{active: isActive("graph")}', ng-click='setActive("graph")')
-              i.nf.nf-logo
-              span.mini-menu-item-text Graph
-            br
-          .button-holder(ng-show="isAvailable('table')")
-            button.btn(ng-class='{active: isActive("table")}', ng-click='setActive("table")')
-              i.fa.fa-table
-              span.mini-menu-item-text Rows
-            br
-          .button-holder(ng-show="isAvailable('plan')")
-            button.btn(ng-class='{active: isActive("plan")}', ng-click='setActive("plan")')
-              i.fa.fa-code-fork
-              span.mini-menu-item-text Plan
-            br
-          .button-holder(ng-show="isAvailable('errors')")
-            button.btn(ng-class='{active: isActive("errors")}', ng-click='setActive("errors")')
-              i.fa.fa-file-text-o
-              span.mini-menu-item-text Errors
-            br
-          .button-holder(ng-show="isAvailable('messages')")
-            button.btn(ng-class='{active: isActive("messages")}', ng-click='setActive("messages")')
-              i.fa.fa-exclamation-triangle
-              span.mini-menu-item-text Warn
-            br
-          .button-holder
-            button.btn(ng-class='{active: isActive("raw")}', ng-click='setActive("raw")')
-              i.fa.fa-code
-              span.mini-menu-item-text Code
     .right-inner-frame.no-indicator(ng-class='{"no-left-menu": frame.type != "cypher" || availableModes.length < 1}')
       .inner
         .view-result(ng-class='{error: frame.hasErrors}')

@@ -46,7 +46,7 @@ angular.module('neo4jApp.settings', ['neo4jApp.utils'])
     showVizDiagnostics: false
     acceptsReplies: false
     enableMotd: true
-    initCmd: ""
+    initCmd: decodeURIComponent(location.search).replace("?","")
     refreshInterval: 10 # in seconds
     userName: "Graph Friend"
     theme: "normal"
